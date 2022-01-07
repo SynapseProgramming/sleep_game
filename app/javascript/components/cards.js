@@ -49,6 +49,16 @@ export default () => {
 
 	return (
 		<CardGroup>
+			<Card border="success" className="text-center">
+				<Card.Header>Points</Card.Header>
+				<Card.Body>
+					<Card.Title>You have {sleepQos[0]} Sleep Points!</Card.Title>
+					<Card.Text>
+						You need {100 - sleepQos[0]} More to Earn a brand new pillow :)
+					</Card.Text>
+				</Card.Body>
+				<Card.Footer className="text-muted">Good Luck!</Card.Footer>
+			</Card>
 			<Card border="primary" className="text-center">
 				<Card.Header>Sleep Graph</Card.Header>
 				<Card.Body>
