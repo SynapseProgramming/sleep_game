@@ -6,6 +6,7 @@ import Dnut from "./dnut";
 
 export default () => {
 	const [sleepData, setsleepData] = useState([]);
+	const [sleepQos, setsleepQos] = useState([]);
 
 	//function which returns an array, where the first ele is the no. of days the user slept for >=7 hrs
 	// the second ele is the no. of days the user slept for <7
@@ -37,7 +38,7 @@ export default () => {
 				.then(response => {
 					console.log(response);
 					setsleepData(response);
-					console.log(qos(response));
+					setsleepQos(qos(response));
 				})
 				.catch(() => console.log("something went wrong!"));
 		}
@@ -60,7 +61,7 @@ export default () => {
 			<Card>
 				<Card.Header>QualityOfSleep</Card.Header>
 				<Card.Body>
-					<Dnut />
+					<Dnut data={sleepQos} />
 				</Card.Body>
 			</Card>
 		</CardGroup>
