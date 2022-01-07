@@ -20,55 +20,51 @@ const TaskInput = () => {
 	const [failure, setFailure] = useState(false);
 	const [formRef, setFormRef] = useState(0);
 
-	// const updateDatabase = values => {
-	// 	const {task, priority, description} = values;
-	// 	// if theres no data filled inside
-	// 	if (task.length == 0 || description.length == 0) return;
-	// 	//simple json display
-	// 	const body = {
-	// 		task,
-	// 		priority,
-	// 		description
-	// 	};
-	// 	const token = document.querySelector('meta[name="csrf-token"]').content;
-	// 	const url = "api/v1/tasks/create";
-	// 	fetch(url, {
-	// 		method: "POST",
-	// 		headers: {
-	// 			"X-CSRF-Token": token,
-	// 			"Content-Type": "application/json"
-	// 		},
-	// 		body: JSON.stringify(body)
-	// 	})
-	// 		.then(response => {
-	// 			if (response.ok) {
-	// 				return response.json();
-	// 			}
-	// 			throw new Error("Network response was not ok.");
-	// 		})
-	// 		.then(response => {
-	// 			setSuccess(true);
-	// 			ReactDOM.findDOMNode(formRef).reset();
-	// 			window.setTimeout(() => {
-	// 				setSuccess(false);
-	// 			}, 3000);
-	// 		})
-	// 		.catch(error => {
-	// 			console.log(error.message);
-	// 			setFailure(true);
-	// 			window.setTimeout(() => {
-	// 				setFailure(false);
-	// 			}, 6000);
-	// 		});
-	// };
-	//
+	const updateDatabase = values => {
+		const {hours, date} = values;
+		//simple json display
+		const body = {
+			hours,
+			date
+		};
+		const token = document.querySelector('meta[name="csrf-token"]').content;
+		const url = "api/v1/sleeps/create";
+		fetch(url, {
+			method: "POST",
+			headers: {
+				"X-CSRF-Token": token,
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(body)
+		})
+			.then(response => {
+				if (response.ok) {
+					return response.json();
+				}
+				throw new Error("Network response was not ok.");
+			})
+			.then(response => {
+				setSuccess(true);
+				ReactDOM.findDOMNode(formRef).reset();
+				window.setTimeout(() => {
+					setSuccess(false);
+				}, 3000);
+			})
+			.catch(error => {
+				console.log(error.message);
+				setFailure(true);
+				window.setTimeout(() => {
+					setFailure(false);
+				}, 6000);
+			});
+	};
 
 	const hehe = values => {
 		console.log(values);
 	};
 	const formik = useFormik({
 		initialValues: {hours: "", date: ""},
-		onSubmit: hehe,
+		onSubmit: updateDatabase,
 		validationSchema: schema
 	});
 
