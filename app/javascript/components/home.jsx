@@ -13,6 +13,9 @@ export default () => (
 				<Navbar.Brand as={Link} to="/">
 					Sleep Game
 				</Navbar.Brand>
+				<Nav.Link as={Link} to="/sleepform">
+					Add Sleep Record
+				</Nav.Link>
 			</Nav>
 		</Navbar>
 		<Outlet />
