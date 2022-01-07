@@ -16,6 +16,9 @@ export default () => (
 				<Nav.Link as={Link} to="/sleepform">
 					Add Sleep Record
 				</Nav.Link>
+				<Nav.Link as={Link} to="/deleteall">
+					Delete All Records
+				</Nav.Link>
 			</Nav>
 		</Navbar>
 		<Outlet />

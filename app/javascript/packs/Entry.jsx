@@ -8,6 +8,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 import Home from "../components/home";
 import Cards from "../components/cards";
 import Form from "../components/form";
+import Delete from "../components/deleteall";
 
 document.addEventListener("DOMContentLoaded", () => {
 	render(
@@ -16,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				<Route path="/" element={<Home />}>
 					<Route index element={<Cards />} />
 					<Route path="sleepform" element={<Form />} />
+					<Route path="deleteall" element={<Delete />} />
 				</Route>
 			</Routes>
 		</Router>,
