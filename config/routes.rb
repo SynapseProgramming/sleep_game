@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get 'sleeps/index'
-      get 'sleeps/create'
+      post 'sleeps/create'
       get 'sleeps/find'
       get 'sleeps/delete'
     end
