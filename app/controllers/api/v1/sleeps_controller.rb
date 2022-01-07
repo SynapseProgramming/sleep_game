@@ -1,6 +1,6 @@
 class Api::V1::SleepsController < ApplicationController
 
-  skip_forgery_protection
+  # skip_forgery_protection
   def index
     @all_sleeps= Sleeptime.all
     render json: @all_sleeps
