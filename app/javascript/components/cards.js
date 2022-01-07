@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import Card from "react-bootstrap/Card";
+import CardGroup from "react-bootstrap/Card";
 import Graph from "./graph";
 
 export default () => {
@@ -28,14 +29,28 @@ export default () => {
 	}, []);
 
 	return (
-		<Card border="primary" className="text-center">
-			<Card.Header>Sleep Graph</Card.Header>
-			<Card.Body>
-				<Graph data={sleepData} />
-			</Card.Body>
-			<Card.Footer className="text-muted">
-				Well, sleep more my dudes
-			</Card.Footer>
-		</Card>
+		<CardGroup>
+			<Card border="primary" className="text-center">
+				<Card.Header>Sleep Graph</Card.Header>
+				<Card.Body>
+					<Graph data={sleepData} />
+				</Card.Body>
+				<Card.Footer className="text-muted">
+					Well, sleep more my dudes
+				</Card.Footer>
+			</Card>
+			<Card>
+				<Card.Body>
+					<Card.Title>Card title</Card.Title>
+					<Card.Text>
+						This is a wider card with supporting text below as a natural lead-in
+						to additional content. This content is a little bit longer.
+					</Card.Text>
+				</Card.Body>
+				<Card.Footer>
+					<small className="text-muted">Last updated 3 mins ago</small>
+				</Card.Footer>
+			</Card>
+		</CardGroup>
 	);
 };
