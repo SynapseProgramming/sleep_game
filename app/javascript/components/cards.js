@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import Card from "react-bootstrap/Card";
 import CardGroup from "react-bootstrap/Card";
 import Graph from "./graph";
+import Dnut from "./dnut";
 
 export default () => {
 	const [sleepData, setsleepData] = useState([]);
@@ -40,16 +41,10 @@ export default () => {
 				</Card.Footer>
 			</Card>
 			<Card>
+				<Card.Header>QualityOfSleep</Card.Header>
 				<Card.Body>
-					<Card.Title>Card title</Card.Title>
-					<Card.Text>
-						This is a wider card with supporting text below as a natural lead-in
-						to additional content. This content is a little bit longer.
-					</Card.Text>
+					<Dnut />
 				</Card.Body>
-				<Card.Footer>
-					<small className="text-muted">Last updated 3 mins ago</small>
-				</Card.Footer>
 			</Card>
 		</CardGroup>
 	);
