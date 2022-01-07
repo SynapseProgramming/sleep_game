@@ -5,7 +5,7 @@ import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 import * as Yup from "yup";
-import {useFormik} from "formik";
+import {useFormik, useField, useFormikContext} from "formik";
 
 const schema = Yup.object({
 	hours: Yup.number()
@@ -104,12 +104,12 @@ const TaskInput = () => {
 				<Form.Label>Select Date</Form.Label>
 				<Form.Control
 					type="textarea"
-					placeholder="Enter Hours Slept"
+					placeholder="YYYY-MM-DD"
 					rows={3}
 					name="date"
 					onChange={formik.handleChange}
 					onBlur={formik.handleBlur}
-					isInvalid={!!formik.errors.date}
+					isInvalid={!!formik.errors.hours}
 				/>
 				<Form.Control.Feedback type="invalid">
 					{formik.errors.task}
