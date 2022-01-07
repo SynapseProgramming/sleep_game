@@ -18,6 +18,8 @@ class Api::V1::SleepsController < ApplicationController
   end
 
   def delete
+    Sleeptime.destroy_all
+    render json: {msg:"All deleted!"}
   end
   def check_params
         params.permit(:date, :hours)

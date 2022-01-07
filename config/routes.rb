@@ -4,7 +4,9 @@ Rails.application.routes.draw do
       get 'sleeps/index'
       post 'sleeps/create'
       get 'sleeps/find'
-      get 'sleeps/delete'
+      delete 'sleeps/delete'
+      
+
     end
   end
   root 'home#index'
