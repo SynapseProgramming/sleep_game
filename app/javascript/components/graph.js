@@ -1,30 +1,77 @@
 import {
 	Chart as ChartJS,
 	LinearScale,
+	CategoryScale,
 	PointElement,
 	LineElement,
 	Tooltip,
 	Legend
 } from "chart.js";
-import {Scatter} from "react-chartjs-2";
+import {Scatter, Line} from "react-chartjs-2";
 import React from "react";
 import faker from "faker";
 
-ChartJS.register(LinearScale, PointElement, LineElement, Tooltip, Legend);
+ChartJS.register(
+	CategoryScale,
+	LinearScale,
+	PointElement,
+	LineElement,
+	Tooltip,
+	Legend
+);
 
 export default props => {
-	const new_data = props.data.map(x => {
+	const new_data = props.data.map(a => {
 		return {
-			date: new Date(x["date"]),
-			hours: x["hours"]
+			x: a["date"],
+			y: a["hours"]
 		};
 	});
-	console.log(new_data);
+
+	// const options = {
+	// 	scales: {
+	// 		x: {
+	// 			type: "time",
+	// 			time: {
+	// 				displayFormats: {
+	// 					millisecond: "MMM DD",
+	// 					second: "MMM DD",
+	// 					minute: "MMM DD",
+	// 					hour: "MMM DD",
+	// 					day: "MMM DD",
+	// 					week: "MMM DD",
+	// 					month: "MMM DD",
+	// 					quarter: "MMM DD",
+	// 					year: "MMM DD"
+	// 				}
+	// 			}
+	// 		},
+	// 		y: {
+	// 			beginAtZero: true
+	// 		}
+	// 	}
+	// };
 	const options = {
-		scales: {
-			y: {
-				beginAtZero: true
-			}
+		legend: {
+			display: false
+		},
+		xAxes: {
+			title: "time",
+			gridThickness: 2,
+			type: "time"
+			// time: {
+			// 	displayormats: {
+			// 		millisecond: "MMM DD",
+			// 		second: "MMM DD",
+			// 		minute: "MMM DD",
+			// 		hour: "MMM DD",
+			// 		day: "MMM DD",
+			// 		week: "MMM DD",
+			// 		month: "MMM DD",
+			// 		quarter: "MMM DD",
+			// 		year: "MMM DD"
+			// 	}
+			// }
 		}
 	};
 
@@ -32,14 +79,11 @@ export default props => {
 		datasets: [
 			{
 				label: "A dataset",
-				data: Array.from({length: 100}, () => ({
-					x: faker.datatype.number({min: -100, max: 100}),
-					y: faker.datatype.number({min: -100, max: 100})
-				})),
+				data: new_data,
 				backgroundColor: "rgba(255, 99, 132, 1)"
 			}
 		]
 	};
 
-	return <Scatter options={options} data={data} />;
+	return <Line options={options} data={data} />;
 };
