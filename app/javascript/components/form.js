@@ -8,7 +8,10 @@ import * as Yup from "yup";
 import {useFormik} from "formik";
 
 const schema = Yup.object({
-	hours: Yup.number().required("Required"),
+	hours: Yup.number()
+		.required("Required")
+		.max(24, "you can't sleep for more than 24 hrs in a day!")
+		.min(1, "0 is no sleep. this is not possible."),
 	date: Yup.string().required("Required")
 });
 
