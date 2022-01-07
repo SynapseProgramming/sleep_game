@@ -13,6 +13,13 @@ import faker from "faker";
 ChartJS.register(LinearScale, PointElement, LineElement, Tooltip, Legend);
 
 export default props => {
+	const new_data = props.data.map(x => {
+		return {
+			date: new Date(x["date"]),
+			hours: x["hours"]
+		};
+	});
+	console.log(new_data);
 	const options = {
 		scales: {
 			y: {

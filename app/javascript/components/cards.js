@@ -3,6 +3,8 @@ import Card from "react-bootstrap/Card";
 import Graph from "./graph";
 
 export default () => {
+	const [sleepData, setsleepData] = useState([]);
+
 	useEffect(() => {
 		const url = "/api/v1/sleeps/index";
 		let is_mounted = true;
@@ -16,19 +18,20 @@ export default () => {
 				})
 				.then(response => {
 					console.log(response);
+					setsleepData(response);
 				})
 				.catch(() => console.log("something went wrong!"));
 		}
 		return () => {
 			is_mounted = false;
 		};
-	});
+	}, []);
 
 	return (
 		<Card border="primary" className="text-center">
 			<Card.Header>Sleep Graph</Card.Header>
 			<Card.Body>
-				<Graph />
+				<Graph data={sleepData} />
 			</Card.Body>
 			<Card.Footer className="text-muted">
 				Well, sleep more my dudes
