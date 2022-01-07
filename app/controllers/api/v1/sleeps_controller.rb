@@ -1,27 +1,33 @@
-class Api::V1::SleepsController < ApplicationController
+# frozen_string_literal: true
 
-  # skip_forgery_protection
-  def index
-    @all_sleeps= Sleeptime.all
-    render json: @all_sleeps
-  end
+module Api
+  module V1
+    class SleepsController < ApplicationController
+      # skip_forgery_protection
+      def index
+        @all_sleeps = Sleeptime.all
+        render json: @all_sleeps
+      end
 
-  def create
-    @new_sleep=Sleeptime.create!(check_params)
-    if @new_sleep
-      render json: @new_sleep
-    else render json: @new_sleep.errors
-    end
-  end
+      def create
+        @new_sleep = Sleeptime.create!(check_params)
+        if @new_sleep
+          render json: @new_sleep
+        else
+          render json: @new_sleep.errors
+        end
+      end
 
-  def find
-  end
+      def find; end
 
-  def delete
-    Sleeptime.destroy_all
-    render json: {msg:"All deleted!"}
-  end
-  def check_params
+      def delete
+        Sleeptime.destroy_all
+        render json: { msg: 'All deleted!' }
+      end
+
+      def check_params
         params.permit(:date, :hours)
       end
+    end
+  end
 end
