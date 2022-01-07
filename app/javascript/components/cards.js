@@ -1,4 +1,5 @@
 import React from "react";
+import Card from "react-bootstrap/Card";
 import {
 	Chart as ChartJS,
 	LinearScale,
@@ -34,5 +35,17 @@ export const data = {
 };
 
 export default () => {
-	return <Scatter options={options} data={data} />;
+	<Scatter options={options} data={data} />;
+
+	return (
+		<Card border="primary" className="text-center">
+			<Card.Header>Sleep Graph</Card.Header>
+			<Card.Body>
+				<Scatter options={options} data={data} />;
+			</Card.Body>
+			<Card.Footer className="text-muted">
+				Well, sleep more my dudes
+			</Card.Footer>
+		</Card>
+	);
 };
