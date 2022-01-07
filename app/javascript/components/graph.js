@@ -28,29 +28,6 @@ export default props => {
 		};
 	});
 
-	// const options = {
-	// 	scales: {
-	// 		x: {
-	// 			type: "time",
-	// 			time: {
-	// 				displayFormats: {
-	// 					millisecond: "MMM DD",
-	// 					second: "MMM DD",
-	// 					minute: "MMM DD",
-	// 					hour: "MMM DD",
-	// 					day: "MMM DD",
-	// 					week: "MMM DD",
-	// 					month: "MMM DD",
-	// 					quarter: "MMM DD",
-	// 					year: "MMM DD"
-	// 				}
-	// 			}
-	// 		},
-	// 		y: {
-	// 			beginAtZero: true
-	// 		}
-	// 	}
-	// };
 	const options = {
 		legend: {
 			display: false
@@ -59,26 +36,13 @@ export default props => {
 			title: "time",
 			gridThickness: 2,
 			type: "time"
-			// time: {
-			// 	displayormats: {
-			// 		millisecond: "MMM DD",
-			// 		second: "MMM DD",
-			// 		minute: "MMM DD",
-			// 		hour: "MMM DD",
-			// 		day: "MMM DD",
-			// 		week: "MMM DD",
-			// 		month: "MMM DD",
-			// 		quarter: "MMM DD",
-			// 		year: "MMM DD"
-			// 	}
-			// }
 		}
 	};
 
 	const data = {
 		datasets: [
 			{
-				label: "A dataset",
+				label: "Hours Slept",
 				data: new_data,
 				backgroundColor: "rgba(255, 99, 132, 1)"
 			}
