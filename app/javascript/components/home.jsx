@@ -3,19 +3,21 @@
 // of the page.
 
 import React from "react";
-import ReactDOM from "react-dom";
-import PropTypes from "prop-types";
+import {Outlet, Link} from "react-router-dom";
+import {Navbar, Nav} from "react-bootstrap";
 
-const Hello = props => <div>Hello {props.name}!</div>;
-
-Hello.defaultProps = {
-	name: "David"
-};
-
-Hello.propTypes = {
-	name: PropTypes.string
-};
-
-export default () => {
-	return <Hello name="React" />;
-};
+export default () => (
+	<div>
+		<Navbar bg="dark" variant="dark">
+			<Nav className="ml-auto">
+				<Navbar.Brand as={Link} to="/">
+					Sleep Game
+				</Navbar.Brand>
+				<Nav.Link as={Link} to="/sleepform">
+					Add Sleep Record
+				</Nav.Link>
+			</Nav>
+		</Navbar>
+		<Outlet />
+	</div>
+);
