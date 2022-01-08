@@ -93,6 +93,7 @@ const TaskInput = () => {
 			<Alert show={failure} variant="danger">
 				Error! Task was not added to the database!
 			</Alert>
+			<Form.Control type="date" name="date_of_birth" />
 			<Form.Group className="mb-3" controlId="TaskInput">
 				<Form.Label>Hours Slept</Form.Label>
 				<Form.Control
