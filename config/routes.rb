@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
@@ -5,8 +7,6 @@ Rails.application.routes.draw do
       post 'sleeps/create'
       get 'sleeps/find'
       delete 'sleeps/delete'
-      
-
     end
   end
   root 'home#index'

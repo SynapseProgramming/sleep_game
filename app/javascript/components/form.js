@@ -88,7 +88,7 @@ const TaskInput = () => {
 			ref={form => setFormRef(form)}
 		>
 			<Alert show={success} variant="success">
-				Task successfully added!
+				Sleep Record added!
 			</Alert>
 			<Alert show={failure} variant="danger">
 				Error! Task was not added to the database!

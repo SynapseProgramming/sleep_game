@@ -1,24 +1,7 @@
-# README
+# Description
+A simple web-app which aims to help users to sleep better, by turning sleep time into a game :)<br/>
+Built with a whole host of react components and ruby on rails for the backend, postgresql for the database
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Link to Deployed App
+https://ancient-temple-88804.herokuapp.com/ 
