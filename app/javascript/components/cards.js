@@ -36,7 +36,6 @@ export default () => {
 					throw new Error("Network response was not ok.");
 				})
 				.then(response => {
-					console.log(response);
 					setsleepData(response);
 					setsleepQos(qos(response));
 				})

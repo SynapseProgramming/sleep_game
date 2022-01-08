@@ -21,12 +21,19 @@ ChartJS.register(
 );
 
 export default props => {
+	const sort_date = (a, b) => {
+		return new Date(a.x).getTime() - new Date(b.x).getTime();
+	};
+
 	const new_data = props.data.map(a => {
 		return {
 			x: a["date"],
 			y: a["hours"]
 		};
 	});
+
+	//sort date chronologically
+	new_data.sort(sort_date);
 
 	const options = {
 		legend: {
