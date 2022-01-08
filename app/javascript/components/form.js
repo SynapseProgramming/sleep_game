@@ -20,54 +20,40 @@ const TaskInput = () => {
 	const [failure, setFailure] = useState(false);
 	const [formRef, setFormRef] = useState(0);
 
-	// const updateDatabase = values => {
-	// 	const {hours, year, month, day} = values;
-	// 	const date = year + "-" + month + "-" + day;
-	// 	//simple json display
-	// 	const body = {
-	// 		hours,
-	// 		date
-	// 	};
-	// 	const token = document.querySelector('meta[name="csrf-token"]').content;
-	// 	const url = "api/v1/sleeps/create";
-	// 	fetch(url, {
-	// 		method: "POST",
-	// 		headers: {
-	// 			"X-CSRF-Token": token,
-	// 			"Content-Type": "application/json"
-	// 		},
-	// 		body: JSON.stringify(body)
-	// 	})
-	// 		.then(response => {
-	// 			if (response.ok) {
-	// 				return response.json();
-	// 			}
-	// 			throw new Error("Network response was not ok.");
-	// 		})
-	// 		.then(response => {
-	// 			setSuccess(true);
-	// 			ReactDOM.findDOMNode(formRef).reset();
-	// 			window.setTimeout(() => {
-	// 				setSuccess(false);
-	// 			}, 3000);
-	// 		})
-	// 		.catch(error => {
-	// 			console.log(error.message);
-	// 			setFailure(true);
-	// 			window.setTimeout(() => {
-	// 				setFailure(false);
-	// 			}, 6000);
-	// 		});
-	// };
-	//
-
 	const updateDatabase = values => {
-		console.log(values);
+		const body = values;
+		const token = document.querySelector('meta[name="csrf-token"]').content;
+		const url = "api/v1/sleeps/create";
+		fetch(url, {
+			method: "POST",
+			headers: {
+				"X-CSRF-Token": token,
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(body)
+		})
+			.then(response => {
+				if (response.ok) {
+					return response.json();
+				}
+				throw new Error("Network response was not ok.");
+			})
+			.then(response => {
+				setSuccess(true);
+				ReactDOM.findDOMNode(formRef).reset();
+				window.setTimeout(() => {
+					setSuccess(false);
+				}, 3000);
+			})
+			.catch(error => {
+				console.log(error.message);
+				setFailure(true);
+				window.setTimeout(() => {
+					setFailure(false);
+				}, 6000);
+			});
 	};
 
-	const hehe = values => {
-		console.log(values);
-	};
 	const formik = useFormik({
 		initialValues: {hours: "", date: ""},
 		onSubmit: updateDatabase,
@@ -111,12 +97,7 @@ const TaskInput = () => {
 					onBlur={formik.handleBlur}
 					isInvalid={!!formik.errors.date}
 				/>
-				<Form.Control.Feedback
-					type="invalid"
-					onChange={formik.handleChange}
-					onBlur={formik.handleBlur}
-					isInvalid={!!formik.errors.date}
-				>
+				<Form.Control.Feedback type="invalid">
 					{formik.errors.date}
 				</Form.Control.Feedback>
 			</Form.Group>
